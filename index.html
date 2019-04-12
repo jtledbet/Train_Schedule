@@ -1,0 +1,97 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Twanes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets\css\style.css">
+</head>
+
+<body>
+    <div class="flex-container" style="margin: 10px">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <div class="flex-container">
+                        <h1>Active Train Scheduler</h1>
+                        <h5>All aboard the active train scheduler express.</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <table class="table" id="timeTable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">First Arrival</th>
+                            <th scope="col">Frequency (min)</th>
+                            <th scope="col">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Trenton Express</th>
+                            <td>Trenton</td>
+                            <td>5:35</td>
+                            <td>25</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th>Oregon Trail</th>
+                            <td>Salem, Oregon</td>
+                            <td>13:39</td>
+                            <td>3600</td>
+                            <td>1154</td>
+                        </tr>
+                        <tr>
+                            <th>Midnight Carriage</th>
+                            <td>Philadelphia</td>
+                            <td>17:55</td>
+                            <td>15</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <div class="flex-container form">
+                    <div class="form-group">
+                        <label for="trainNameForm">Train Name</label>
+                        <input type="text" class="form-control" id="train-name" placeholder="Bob's Your Uncle">
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationForm">Destination</label>
+                        <input type="text" class="form-control" id="train-destination" placeholder="Nowheresville">
+                    </div>
+                    <div class="form-group">
+                        <label for="firstTimeForm">First Train Time (HH:mm - military time)</label>
+                        <input type="text" class="form-control" id="train-first" placeholder="06:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequencyForm">Frequency (min)</label>
+                        <input type="text" class="form-control" id="train-frequency" placeholder="7">
+                    </div>
+                    <button type="submit" class="btn btn-info btn-dark" id="submitButton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="assets\javascript\main.js"></script>
+        
+</body>
+
+</html>
