@@ -79,7 +79,7 @@ database.ref().on("child_added", function (snapshot) {
 function createNewTrain(train) {
 
   
-      // First Time (pushed back 1 year to make sure it comes before current time)
+      // First arrival time
       var trainFirstConverted = moment(train.first, "HH:mm").subtract(1, "years");
       console.log(trainFirstConverted);
   
@@ -95,7 +95,7 @@ function createNewTrain(train) {
       var timeApart = diffTime % train.freq;
       console.log("Time apart: " + timeApart);
   
-      // Minute Until Train
+      // Minutes Until Train
       var minsAway = train.freq - timeApart;
       console.log("Minutes 'til train: " + minsAway);
   
