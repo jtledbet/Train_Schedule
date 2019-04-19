@@ -16,10 +16,12 @@ var trainDest = "";
 var trainFirst = "";
 var trainFreq = "";
 var minsAway = "";
+var nextTrain = "";
 
 window.onload = function () {
   event.preventDefault();
-};
+}
+
 
 // Submit button:
 $("#submitButton").on("click", function (event) {
@@ -32,22 +34,28 @@ $("#submitButton").on("click", function (event) {
   trainFirst = $("#train-first").val().trim();
   trainFreq = $("#train-frequency").val().trim();
 
-  var newTrain = {
-    "name": trainName,
-    "dest": trainDest,
-    "first": trainFirst,
-    "freq": trainFreq
-  }
-  
-  console.log("newTrain: " + newTrain)
+  if (trainName != "" && 
+      trainDest != "" && 
+      trainFirst != "" && 
+      trainFreq != "") {
 
-  // Change what is saved in firebase
-  database.ref().push({
-    name: trainName,
-    destination: trainDest,
-    first: trainFirst,
-    frequency: trainFreq
-  });
+    var newTrain = {
+        "name": trainName,
+        "dest": trainDest,
+        "first": trainFirst,
+        "freq": trainFreq
+      }
+      
+      console.log("newTrain: " + newTrain)
+
+      // Change what is saved in firebase
+      database.ref().push({
+        name: trainName,
+        destination: trainDest,
+        first: trainFirst,
+        frequency: trainFreq
+      });
+  } else alert("Please complete all fields before submitting.")
 });
 
 database.ref().on("child_added", function (snapshot) {
@@ -108,12 +116,14 @@ function createNewTrain(train) {
   const newDest = $("<td>" + train.dest + "</td>");
   const newFirst = $("<td>" + train.first + "</td>");
   const newFreq = $("<td>" + train.freq + "</td>");
-  const newMinsAway = $("<td>" + minsAway + "</td></tr>");
-  
+  const newMinsAway = $("<td>" + minsAway + "</td>");
+  const newNextTrain = $("<td>" + moment(nextTrain).format("hh:mm") + "</td></tr>");
+
   newRow.append(newName)
   newRow.append(newDest)
   newRow.append(newFirst)
   newRow.append(newFreq)
   newRow.append(newMinsAway)
+  newRow.append(newNextTrain)
   $("#timeTable").append(newRow)
 }
