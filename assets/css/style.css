@@ -4,6 +4,10 @@
     /* margin: 0 auto; */
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .flex-container {
     margin: 0 auto;
     display: flex;
